@@ -1,27 +1,21 @@
-<h1>TODO: EN Documentation for Explore Index</h1>
-	       
-<p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+Well-being and social cooperation are two key factors for social progress. In the last decades, there has been a growing willingness to complement our main progress indicators (such as GDP) with taking into account well-being. Furthermore, the idea of using well-being as a tool to design public policies has becoming more frequent in academia. The main objective of the Well-Being Observatory (Observatoire de Bien-être –OBE- in french) is to produce knowledge to better understand, measure and explore different aspects of well-being.
+Our project aims to overcome the scarcity of data producing new indicators that allow us to compare well-being across regions and periods. We have use the techniques of Big Data to collect and create new indicators related to behavior, social preferences and well-being.
 
-<h2>Header Level 2</h2>
-	       
-<ol>
-   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-   <li>Aliquam tincidunt mauris eu risus.</li>
-</ol>
+<h2>1.	Data Sources</h2>
+<h3>a.	Gallup Survey</h3>
+Well-being data for the United States comes from Gallup Analytics – a daily survey involving 500 households where people are at least 18 years old. We made a database with the Gallup Data collected over 300 weeks (from 6th January 2008 to 4th January 2014).
+The survey includes 10 self-declared feelings, which 6 of them are positives and the other 4 are negative.
+•	Positive Feelings: happiness, learning, quality of life (present and future), laugh and being respected.
+•	Negative Feelings: anger, sadness, stress and worry.
 
-<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+<h3>b.	Google Trend Data</h3>
+We use the frequency of queries made to google.com for building French and American well-being indicators. Google Trends data is available on their website. Specifically, we measure the queries frequency by a composite category. For example, if someone made a Google search about “hanging out” or “swimming”, this information will directly be stored inside the “Leisure” queries category. This allows us to give some stability to our method because if some words become obsolete over time due to cultural changes, then this won’t have an impact on our variable of interest. This variable isn’t related with our concept of interest. In addition, those composites categories (job, family stress, leisure, kids or security for example) are important to explain and understand our society and its dynamics.
+Each category includes 10 words (we are planning to add more words in the future to bring more stability to our model). The construction of words categories follows different steps. First of all, words are gathered according to their meaning inside a group (job, leisure, family, politics, etc.). Second of all, a factor analysis has been made to sort those words: those not belonging to the first factor (positive) will be removed of the category. The last step is to create a composite variable with the z-scores mean of key words volumes. This choice has been made to ensure the prediction method could work in the absence of some key words.
+<h2>2.	Methodology</h2>
+We apply the Bayesian Model Averaging (BMA) to choose sub-groups of categories that explain well-being variables in a robust and complete way. Queries frequencies are integrated in the econometric regression as one of the explaining variables. Our explained variable is a well-being indicator. The coefficients of each variable are then use to build our final indicators. We calibrate our model using data coming from du Gallup World Poll and Gallup USA Daily Poll as well as Google Trends to measure well-being variations over time. 
+The validity of our predictive model is made through an “outside test” which consists to left aside some observations to run a first regression and then, run a second regression of the same specification using the observations that were not integrated in the first regression.
 
-<h3>Header Level 3</h3>
+ 
 
-<ul>
-   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-   <li>Aliquam tincidunt mauris eu risus.</li>
-</ul>
 
-<pre><code>
-#header h1 a { 
-	display: block; 
-	width: 300px; 
-	height: 80px; 
-}
-</code></pre>
+
